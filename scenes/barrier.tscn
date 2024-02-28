@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://coe1wkbqem4c1"]
+
+[ext_resource type="Script" path="res://scripts/barrier.gd" id="1_igdxm"]
+[ext_resource type="Texture2D" uid="uid://cw0cqxdskakfx" path="res://assets/Neon_Icons/Neon Icons Effect Pack 2 B.png" id="1_qqmih"]
+[ext_resource type="AudioStream" uid="uid://c0jmkj3h4wg57" path="res://assets/Throw (Fast Passing Object) - short.mp3" id="3_qbybf"]
+[ext_resource type="AudioStream" uid="uid://cpbo1k6lhba05" path="res://assets/Card_Game_Magic_Fire_Rush_01.mp3" id="3_sth68"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hvg3i"]
+radius = 37.0135
+
+[sub_resource type="Animation" id="Animation_5q45n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [327]
+}
+
+[sub_resource type="Animation" id="Animation_dal1f"]
+resource_name = "default"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [327, 328, 329, 330]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0oi8y"]
+_data = {
+"RESET": SubResource("Animation_5q45n"),
+"default": SubResource("Animation_dal1f")
+}
+
+[node name="Barrier" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_igdxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.462745)
+scale = Vector2(2, 2)
+texture = ExtResource("1_qqmih")
+hframes = 24
+vframes = 14
+frame = 327
+
+[node name="Area2D" type="Area2D" parent="."]
+show_behind_parent = true
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_hvg3i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0oi8y")
+}
+autoplay = "default"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qbybf")
+volume_db = -11.467
+
+[node name="FlySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sth68")
+volume_db = -5.403
+autoplay = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

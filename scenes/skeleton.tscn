@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dg4t0ma76yu5q" path="res://assets/Skeleton Sprite Pack/Skeleton/Sprite Sheets/Skeleton Walk.png" id="1_okddj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdhje"]
-size = Vector2(40, 76)
+size = Vector2(40, 64)
 
 [sub_resource type="Animation" id="Animation_ejnva"]
 length = 0.001
@@ -45,7 +45,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y6dcl"]
-size = Vector2(41, 78)
+size = Vector2(41, 66)
 
 [node name="Skeleton" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
@@ -58,7 +58,7 @@ hframes = 13
 region_rect = Rect2(0, 0, 287.658, 33)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, -1)
+position = Vector2(-5, 5)
 shape = SubResource("RectangleShape2D_cdhje")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -72,5 +72,5 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4.5, 0)
+position = Vector2(-4.5, 6)
 shape = SubResource("RectangleShape2D_y6dcl")

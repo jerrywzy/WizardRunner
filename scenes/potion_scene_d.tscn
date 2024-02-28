@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb6sdk0pkgl55"]
+
+[ext_resource type="PackedScene" uid="uid://dji1cv7oybae" path="res://scenes/potion_pickup.tscn" id="1_egxyv"]
+
+[node name="PotionSceneC" type="Node2D"]
+
+[node name="PotionPickup" parent="." instance=ExtResource("1_egxyv")]
+
+[node name="PotionPickup2" parent="." instance=ExtResource("1_egxyv")]
+position = Vector2(60, 60)
+
+[node name="PotionPickup3" parent="." instance=ExtResource("1_egxyv")]
+position = Vector2(120, 120)
+
+[node name="PotionPickup4" parent="." instance=ExtResource("1_egxyv")]
+position = Vector2(180, 120)
+
+[node name="PotionPickup5" parent="." instance=ExtResource("1_egxyv")]
+position = Vector2(240, 60)
+
+[node name="PotionPickup6" parent="." instance=ExtResource("1_egxyv")]
+position = Vector2(300, 0)

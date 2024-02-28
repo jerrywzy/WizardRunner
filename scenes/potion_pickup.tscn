@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dji1cv7oybae"]
+
+[ext_resource type="Script" path="res://scripts/potion_pickup.gd" id="1_30kwv"]
+[ext_resource type="Texture2D" uid="uid://cxsix3f1jmfa8" path="res://assets/ItemsPotionA.png" id="1_74oub"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hm7a0"]
+radius = 19.0
+height = 60.0
+
+[node name="PotionPickup" type="Node2D" groups=["Pickup"]]
+script = ExtResource("1_30kwv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_74oub")
+hframes = 12
+vframes = 2
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Pickups"]]
+shape = SubResource("CapsuleShape2D_hm7a0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

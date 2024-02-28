@@ -19,7 +19,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_dynwx")
 theme_override_font_sizes/font_size = 75
-text = "Use Space or Left Mouse Button to fly!
+text = "Press Space/LMB to fly!
+Press F/RMB to boost (requires 20 potions)!
 
 PRESS ENTER TO BEGIN"
 horizontal_alignment = 1

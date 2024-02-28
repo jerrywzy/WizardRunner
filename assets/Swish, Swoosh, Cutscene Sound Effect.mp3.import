@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn202l21fjt3j"
+path="res://.godot/imported/Swish, Swoosh, Cutscene Sound Effect.mp3-734fcb9a56b383b53a3ddbf7cb930bfa.mp3str"
+
+[deps]
+
+source_file="res://assets/Swish, Swoosh, Cutscene Sound Effect.mp3"
+dest_files=["res://.godot/imported/Swish, Swoosh, Cutscene Sound Effect.mp3-734fcb9a56b383b53a3ddbf7cb930bfa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
