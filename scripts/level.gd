@@ -45,6 +45,9 @@ func _process(_delta):
 		score += $Player.speed
 		update_ui()
 		
+		if $Player.speed < $Player.max_speed:
+			$Player.speed *= $Player.speed_increase
+		
 		# clean up
 		for obj in get_tree().get_nodes_in_group("Obstacle"):
 			if obj.position.x < $Player.position.x - 1000:
@@ -76,7 +79,7 @@ func update_ui():
 func spawn_skeleton(number):
 	for i in range(number):
 		var player_current_pos = $Player.global_position
-		var ahead_x = player_current_pos.x + randf_range(1500, 2000)
+		var ahead_x = player_current_pos.x + randf_range(1200, 2000)
 		var ahead_y = 500
 		var skeleton = skeleton_scene.instantiate()
 		add_child(skeleton)
@@ -134,7 +137,7 @@ func _on_obstacles_spawn_timer_timeout():
 func _on_enemy_spawn_timer_timeout():
 	if game_running:
 		var random_seconds = randf_range(1, 2)
-		var random_number = randi_range(1, 4)  # random number to spawn multiples
+		var random_number = randi_range(1, 5)  # random number to spawn multiples
 		await get_tree().create_timer(random_seconds).timeout # extra timer to randomize spawn behaviour
 		spawn_skeleton(random_number)
 		$EnemySpawnTimer.start()

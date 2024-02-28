@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 400
-@export var speed_increase = 1.0001
+@export var speed_increase = 1.0002
 var boosted_speed = 1200
 var default_speed = 400
 var max_speed = 900
@@ -40,8 +40,7 @@ func _physics_process(delta):
 			$AnimationPlayer.play("fly")
 		
 		velocity.x = direction * speed
-		if speed < max_speed:
-			speed *= speed_increase
+		
 		move_and_slide()
 	
 		if Input.is_action_just_pressed("boost") and not barrier_active:

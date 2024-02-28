@@ -42,7 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6t61"]
-size = Vector2(37, 192)
+size = Vector2(32, 162)
 
 [node name="LightningTrap" type="StaticBody2D" groups=["Obstacle"]]
 collision_layer = 8
@@ -66,7 +66,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
-position = Vector2(3.5, -1)
+position = Vector2(3, -2)
 shape = SubResource("RectangleShape2D_l6t61")
 
 [connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]

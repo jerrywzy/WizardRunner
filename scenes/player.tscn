@@ -472,9 +472,8 @@ shape = SubResource("CapsuleShape2D_anapc")
 material = SubResource("ShaderMaterial_3q4aq")
 position = Vector2(2, -3)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("3_7k7ey")
+texture = ExtResource("2_05wss")
 hframes = 8
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
