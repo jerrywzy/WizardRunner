@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var speed: float = 400
-@export var speed_increase = 1.0002
+@export var speed_increase = 1.00005
 var boosted_speed = 1200
 var default_speed = 400
 var max_speed = 900
@@ -11,6 +11,7 @@ var upthrust = -200
 var allow_input: bool = true
 var dying_animation = false
 var potions: int = 0
+var max_potions: int = 60
 var barrier_active: bool = false
 
 var barrier_scene: PackedScene = load("res://scenes/barrier.tscn")
@@ -114,6 +115,7 @@ func pickup(power):
 	if power == "Potion":
 		$PickupAudio.stream = load("res://assets/Coin Pickup Sound Effect Short.mp3")
 		$PickupAudio.play()
-		potions += 1
+		if potions <= max_potions:
+			potions += 1
 		
 		

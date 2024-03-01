@@ -5,18 +5,55 @@
 [node name="PotionSceneA" type="Node2D" groups=["Pickup"]]
 
 [node name="PotionPickup" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(-7, 0)
 
 [node name="PotionPickup2" parent="." instance=ExtResource("1_7aaym")]
-position = Vector2(60, 0)
+position = Vector2(53, 0)
 
 [node name="PotionPickup3" parent="." instance=ExtResource("1_7aaym")]
-position = Vector2(120, 0)
+position = Vector2(113, 0)
 
 [node name="PotionPickup4" parent="." instance=ExtResource("1_7aaym")]
-position = Vector2(180, 0)
+position = Vector2(173, 0)
 
 [node name="PotionPickup5" parent="." instance=ExtResource("1_7aaym")]
-position = Vector2(240, 0)
+position = Vector2(233, 0)
 
 [node name="PotionPickup6" parent="." instance=ExtResource("1_7aaym")]
-position = Vector2(300, 0)
+position = Vector2(293, 0)
+
+[node name="PotionPickup7" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(653, 238)
+
+[node name="PotionPickup8" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(713, 238)
+
+[node name="PotionPickup9" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(773, 238)
+
+[node name="PotionPickup10" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(833, 238)
+
+[node name="PotionPickup11" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(893, 238)
+
+[node name="PotionPickup12" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(953, 238)
+
+[node name="PotionPickup13" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(1313, 0)
+
+[node name="PotionPickup14" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(1373, 0)
+
+[node name="PotionPickup15" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(1433, 0)
+
+[node name="PotionPickup16" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(1493, 0)
+
+[node name="PotionPickup17" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(1553, 0)
+
+[node name="PotionPickup18" parent="." instance=ExtResource("1_7aaym")]
+position = Vector2(1613, 0)

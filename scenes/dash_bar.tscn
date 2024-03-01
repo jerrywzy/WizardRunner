@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://rmjjaq82wjed"]
+
+[ext_resource type="Script" path="res://scripts/dash_bar.gd" id="1_asauc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k24u4"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 0.713726)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w1bn"]
+bg_color = Color(1, 0.972549, 0.27451, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="DashBar" type="ProgressBar"]
+offset_right = 100.0
+offset_bottom = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k24u4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7w1bn")
+step = 1.0
+show_percentage = false
+script = ExtResource("1_asauc")

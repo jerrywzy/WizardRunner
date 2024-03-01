@@ -8,16 +8,39 @@
 position = Vector2(120, 0)
 
 [node name="PotionPickup2" parent="." instance=ExtResource("1_ju6u2")]
-position = Vector2(60, 60)
+position = Vector2(60, 0)
 
 [node name="PotionPickup3" parent="." instance=ExtResource("1_ju6u2")]
-position = Vector2(0, 120)
 
 [node name="PotionPickup4" parent="." instance=ExtResource("1_ju6u2")]
 position = Vector2(180, 0)
 
 [node name="PotionPickup5" parent="." instance=ExtResource("1_ju6u2")]
-position = Vector2(240, 60)
+position = Vector2(240, 0)
+
+[node name="PotionPickup7" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(360, 0)
+
+[node name="PotionPickup8" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(300, 0)
 
 [node name="PotionPickup6" parent="." instance=ExtResource("1_ju6u2")]
-position = Vector2(300, 120)
+position = Vector2(120, 67)
+
+[node name="PotionPickup9" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(60, 67)
+
+[node name="PotionPickup10" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(0, 67)
+
+[node name="PotionPickup11" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(180, 67)
+
+[node name="PotionPickup12" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(240, 67)
+
+[node name="PotionPickup13" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(360, 67)
+
+[node name="PotionPickup14" parent="." instance=ExtResource("1_ju6u2")]
+position = Vector2(300, 67)

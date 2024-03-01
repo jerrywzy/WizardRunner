@@ -6,15 +6,13 @@ var lightning_trap_scene: PackedScene = load("res://scenes/lightning_trap.tscn")
 var fire_trap_scene: PackedScene = load("res://scenes/fire_trap.tscn")
 var saw_trap_scene: PackedScene = load("res://scenes/saw_trap.tscn")
 var saw_trap_scene_flat: PackedScene = load("res://scenes/saw_trap_2.tscn")
-var barrier_pickup_scene: PackedScene = load("res://scenes/barrier_pickup.tscn")
-var potion_pickup_scene: PackedScene = load("res://scenes/potion_pickup.tscn")
 var potion_scene_a: PackedScene = load("res://scenes/potion_scene_a.tscn")
-#var potion_scene_b: PackedScene = load("res://scenes/potion_scene_b.tscn")
-#var potion_scene_c: PackedScene = load("res://scenes/potion_scene_c.tscn")
-#var potion_scene_d: PackedScene = load("res://scenes/potion_scene_d.tscn")
+var potion_scene_b: PackedScene = load("res://scenes/potion_scene_b.tscn")
+var potion_scene_c: PackedScene = load("res://scenes/potion_scene_c.tscn")
+var potion_scene_d: PackedScene = load("res://scenes/potion_scene_d.tscn")
 var obstacles: Array[PackedScene] = [lightning_trap_scene]
 var obstacles_flat: Array[PackedScene] = [saw_trap_scene, fire_trap_scene]
-var item_pickups: Array[PackedScene] = [potion_pickup_scene, potion_pickup_scene]
+var item_pickups: Array[PackedScene] = [potion_scene_a, potion_scene_b, potion_scene_c, potion_scene_d]
 var score: int = 0
 var high_score: int = 0
 var score_modifier: int = 1000
@@ -50,10 +48,10 @@ func _process(_delta):
 		
 		# clean up
 		for obj in get_tree().get_nodes_in_group("Obstacle"):
-			if obj.position.x < $Player.position.x - 1000:
+			if obj.global_position.x < $Player.global_position.x - 1000:
 				obj.queue_free()
 		for obj in get_tree().get_nodes_in_group("Pickup"):
-			if obj.position.x < $Player.position.x - 1000:
+			if obj.global_position.x < $Player.global_position.x - 5000:
 				obj.queue_free()
 	
 	else: 
@@ -73,8 +71,20 @@ func _process(_delta):
 		
 func update_ui():
 	$UI/Score.text = str("Score: ") + str(score / score_modifier) 
-	$UI/Potions.text = str("Potions: ") + str($Player.potions) 
 	$UI/CurrentSpeed.text = str("Speed: ") + str(int($Player.speed)) 
+	if $Player.potions <= $Player.max_potions:
+		if $Player.potions >= 0 and $Player.potions <= 20:
+			$UI/DashBar1.value = (float($Player.potions) / 20) * 100
+			$UI/DashBar2.value = 0
+			$UI/DashBar3.value = 0
+		elif $Player.potions > 20 and $Player.potions <= 40:
+			$UI/DashBar1.value = 100
+			$UI/DashBar2.value = ((float($Player.potions) - 20) / 20) * 100
+			$UI/DashBar3.value = 0
+		else:
+			$UI/DashBar1.value = 100
+			$UI/DashBar2.value = 100
+			$UI/DashBar3.value = ((float($Player.potions) - 40) / 20) * 100
 
 func spawn_skeleton(number):
 	for i in range(number):
@@ -111,20 +121,20 @@ func spawn_obstacle_flat(number):
 
 func spawn_pickup():
 	var player_current_pos = $Player.global_position
-	var item_scene = item_pickups[randi() % 2]
-	if item_scene == potion_pickup_scene:
-		var ahead_y = randf_range(140, 500)
-		for i in [50, 100, 150, 200, 250]:
-			var ahead_x = player_current_pos.x + 1000 + i
-			var item = item_scene.instantiate()
-			add_child(item)
-			item.global_position = Vector2(ahead_x, ahead_y)
-	else:
-		var ahead_y = randf_range(140, 500)
-		var ahead_x = player_current_pos.x + 1000
-		var item = item_scene.instantiate()
-		add_child(item)
-		item.global_position = Vector2(ahead_x, ahead_y)
+	var item_scene = item_pickups[randi() % 4]
+	#if item_scene == potion_pickup_scene:
+	var ahead_y = randf_range(140, 300)
+		#for i in [50, 100, 150, 200, 250]:
+	var ahead_x = player_current_pos.x + 1000  # + i
+	var item = item_scene.instantiate()
+	add_child(item)
+	item.global_position = Vector2(ahead_x, ahead_y)
+	#else:
+		#var ahead_y = randf_range(140, 500)
+		#var ahead_x = player_current_pos.x + 1000
+		#var item = item_scene.instantiate()
+		#add_child(item)
+		#item.global_position = Vector2(ahead_x, ahead_y)
 	
 func _on_obstacles_spawn_timer_timeout():
 	if game_running:
@@ -153,7 +163,7 @@ func _on_obstacles_flat_spawn_timer_timeout():
 
 func _on_item_timer_timeout():
 	if game_running:
-		var random_seconds = randf_range(3, 4)
+		var random_seconds = randf_range(2, 3)
 		await get_tree().create_timer(random_seconds).timeout  # extra timer to randomize spawn behaviour
 		spawn_pickup()
 		$ItemTimer.start()
