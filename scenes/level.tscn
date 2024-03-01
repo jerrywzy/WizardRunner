@@ -86,6 +86,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="ItemTimer" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
 
 [node name="RunTimer" type="Timer" parent="."]

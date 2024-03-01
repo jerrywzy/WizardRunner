@@ -116,8 +116,7 @@ func pickup(power):
 			barrier_active = false
 		
 	if power == "Potion":
-		$PickupAudio.stream = load("res://assets/Coin Pickup Sound Effect Short.mp3")
-		$PickupAudio.play()
+		$CoinPickupAudio.play()
 		if potions <= max_potions:
 			potions += 1
 		
