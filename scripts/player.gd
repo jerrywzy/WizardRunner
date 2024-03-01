@@ -106,9 +106,12 @@ func pickup(power):
 			await $BarrierTimer.timeout 
 			# finish
 			var speed_tween_2 = get_tree().create_tween()
-			speed_tween_2.tween_property(self, "speed", current_speed, 1)
+			speed_tween_2.tween_property(self, "speed", current_speed, 1.5)
+			var barrier_tween = get_tree().create_tween()
+			barrier_tween.tween_property(barrier, "modulate:a", 0, 1.5)
 			var tween2 = get_tree().create_tween()
 			tween2.tween_property($CPUParticles2D, "modulate:a", 0, 1.5)
+			await barrier_tween.finished
 			barrier.queue_free() 
 			barrier_active = false
 		
